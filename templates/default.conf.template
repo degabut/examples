@@ -5,12 +5,12 @@ server {
     index index.html;
 
     location ^~ /api/ {        
-        proxy_pass http://degabut:8080/;
+        proxy_pass http://dgb-default:8080/;
         proxy_redirect off;
     }
 
     location = /ws {
-        proxy_pass http://degabut:8081;
+        proxy_pass http://dgb-default:8081;
         proxy_read_timeout 1h;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header Host $host;
@@ -23,12 +23,12 @@ server {
 
     # FOR MULTI BOT
     # location ^~ /red-api/ {        
-    #     proxy_pass http://degabut-red:8082/;
+    #     proxy_pass http://dgb-red:8082/;
     #     proxy_redirect off;
     # }
 
     # location = /red-ws {
-    #     proxy_pass http://degabut:8083;
+    #     proxy_pass http://dgb-red:8083;
     #     proxy_read_timeout 1h;
     #     proxy_set_header X-Real-IP $remote_addr;
     #     proxy_set_header Host $host;
@@ -40,7 +40,7 @@ server {
     # }
     
     location ^~ /api/youtube/ {        
-        proxy_pass http://degabut-youtube:8090/;
+        proxy_pass http://dgb-youtube:8090/;
         proxy_redirect off;
     }
         
