@@ -3,3 +3,4 @@ nginx_html
 .env
 .env.web
 logs
+Lavalink.jar
