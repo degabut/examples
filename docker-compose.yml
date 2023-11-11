@@ -1,0 +1,70 @@
+version: "3.3"
+services:
+  dgb-default:
+    container_name: dgb-default
+    image: suspiciouslookingowl/degabut:latest
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - API_PORT=8080
+      - WS_PORT=8081
+      - TOKEN=${BOT_TOKEN}
+      - PREFIX=!
+
+  # FOR MULTI BOT
+  # dgb-red:
+  #   container_name: dgb-red
+  #   image: suspiciouslookingowl/degabut:latest
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - API_PORT=8082
+  #     - WS_PORT=8083
+  #     - TOKEN=${RED_TOKEN}
+  #     - PREFIX=r!
+
+  dgb-lavalink:
+    container_name: dgb-lavalink
+    image: fredboat/lavalink:v3.7
+    restart: always
+    volumes:
+      - ./lavalink:/opt/Lavalink
+
+  dgb-postgres:
+    container_name: dgb-postgres
+    image: postgres:14-alpine
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  # FOR WEB
+  # dgb-nginx:
+  #   container_name: dgb-nginx
+  #   image: nginx:alpine
+  #   volumes:
+  #     - ./templates:/etc/nginx/templates
+  #     - ./nginx_html:/usr/share/nginx/html:ro
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+
+  # dgb-youtube:
+  #   container_name: dgb-youtube
+  #   image: suspiciouslookingowl/degabut-youtube:latest
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - PORT=8090
+
+  # dgb-web-builder:
+  #   container_name: dgb-web-builder
+  #   image: suspiciouslookingowl/degabut-web-builder:latest
+  #   volumes:
+  #     - ./nginx_html:/var/dist
+  #   env_file:
+  #     - .env.web
+      

@@ -1,0 +1,5 @@
+db_data
+nginx_html
+.env
+.env.web
+logs
