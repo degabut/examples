@@ -75,7 +75,7 @@ If you want to run multiple bots, follow these steps:
 1. Uncomment the `FOR MULTI BOT` on `docker.compose.yml` file (enabling `dgb-red` service)
 2. Add the `RED_TOKEN` value on `.env` file with your second bot token
 3. If you are using the web client, add the `VITE_DEGABUT_SERVERS` value on `.env.web`
-4. Run the containers again `docker-compose up -d``
+4. Run the containers again `docker-compose up -d`
 
 `VITE_DEGABUT_SERVERS` value is a minified JSON array string of this object:
 ```json
