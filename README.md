@@ -57,8 +57,8 @@ While the bot is usable now, you can have a better experience by using the [web 
 
 |Key|Description|Example|
 |---|---|---|
-|`VITE_API_URL`|URL to your Degabut API|`http://example.com/api`|
-|`VITE_YOUTUBE_API_URL`|URL to your Degabut YouTube API|`http://example.com/api/youtube`|
+|`VITE_API_BASE_URL`|URL to your Degabut API|`http://example.com/api`|
+|`VITE_YOUTUBE_API_BASE_URL`|URL to your Degabut YouTube API|`http://example.com/api/youtube`|
 |`VITE_WS_URL`|URL to WebSocket API|`ws://example.com/ws`|
 |`VITE_OAUTH_URL`|Discord OAuth URL for Authentication, [more information here](#oauth-url) |`https://discord.com/api/oauth2/authorize?...`|
 
@@ -74,10 +74,10 @@ If you want to run multiple bots, follow these steps:
 
 1. Uncomment the `FOR MULTI BOT` on `docker.compose.yml` file (enabling `dgb-red` service)
 2. Add the `RED_TOKEN` value on `.env` file with your second bot token
-3. If you are using the web client, add the `VITE_DEGABUT_SERVERS` value on `.env.web`
+3. If you are using the web client, add the `VITE_APPLICATIONS` value on `.env.web`
 4. Run the containers again `docker-compose up -d``
 
-`VITE_DEGABUT_SERVERS` value is a minified JSON array string of this object:
+`VITE_APPLICATIONS` value is a minified JSON array string of this object:
 ```json
 {
     "name": "Bot Name",
@@ -108,12 +108,12 @@ If you are following this example, the value should be a minified JSON of:
 So the env value should be:
 
 ```
-VITE_DEGABUT_SERVERS=[{"name":"Degabut","apiBaseUrl":"http://yourserverdomainorip.com/api","wsUrl":"ws://yourserverdomainorip.com/ws","iconUrl":"/icons/colors/degabut-default.png"},{"name":"Redgabut","apiBaseUrl":"http://yourserverdomainorip.com/red-api","wsUrl":"ws://yourserverdomainorip.com/red-ws","iconUrl":"/icons/colors/degabut-red.png"}]
+VITE_APPLICATIONS=[{"name":"Degabut","apiBaseUrl":"http://example.com/api","wsUrl":"ws://example.com/ws","iconUrl":"/icons/colors/degabut-default.png"},{"name":"Redgabut","apiBaseUrl":"http://example.com/red-api","wsUrl":"ws://example.com/red-ws","iconUrl":"/icons/colors/degabut-red.png"}]
 ```
 
 Note: 
 
-- `Degabut Web` provides [5 icons](https://github.com/degabut/degabut-web/tree/main/public/icons/colors) with different colors that you can use for your bot icons (on `iconUrl` value), if you are following this example, it can be loaded from `http://yourserverdomainorip.com/icons/colors/degabut-[color].png`
+- `Degabut Web` provides [5 icons](https://github.com/degabut/degabut-web/tree/main/public/icons/colors) with different colors that you can use for your bot icons (on `iconUrl` value), if you are following this example, it can be loaded from `http://example.com/icons/colors/degabut-[color].png`
 
 |Key|Icon|
 |---|---|
@@ -122,8 +122,6 @@ Note:
 |`degabut-orange.png`|<img src="https://raw.githubusercontent.com/degabut/degabut-web/main/public/icons/colors/degabut-orange.png" width="32" />|
 |`degabut-green.png`|<img src="https://raw.githubusercontent.com/degabut/degabut-web/main/public/icons/colors/degabut-green.png" width="32" />|
 |`degabut-blue.png`|<img src="https://raw.githubusercontent.com/degabut/degabut-web/main/public/icons/colors/degabut-blue.png" width="32" />|
-
--  If you added `VITE_DEGABUT_SERVERS` value, `VITE_API_BASE_URL` will still be needed, and it will be used only for user's authentication
 
 ### OAuth URL
 
