@@ -4,7 +4,7 @@
 - This is a minimal example, with no SSL, rate limit, or CORS configuration on the NGINX server
 - [Degabut](https://github.com/degabut/degabut) is at its early stage and unstable at the moment, the versioning isn't semantic, which means minor / patch version bump might contains breaking changes, but latest push on [Degabut Web](https://github.com/degabut/degabut-web) should be compatible with `latest` [Degabut image](https://hub.docker.com/r/suspiciouslookingowl/degabut) (`suspiciouslookingowl/degabut:latest`)
 
-## Initial Setup
+## Bot Setup
 
 1. Clone this repository
 ```
@@ -136,3 +136,16 @@ To generate OAUth URL:
 ```
 https://discord.com/api/oauth2/authorize?client_id=[your_client_id]&redirect_uri=[your_redirect_uri]&response_type=code&scope=identify
 ```
+
+## Spotify Support
+
+Degabut by default only allows YouTube videos / playlists (and can't be disabled). Degabut `v5` adds Spotify support, but it is disabled by default, to enable it, simply pass
+
+|Key|Description|
+|---|---|
+|`SPOTIFY_CLIENT_ID`|Spotify Client ID|
+|`SPOTIFY_CLIENT_SECRET`|Spotify Client Secret|
+
+to your `.env` file. Credentials can be obtained from [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+
+You can also add `VITE_SPOTIFY_INTEGRATION=true` to your `.env.web` file to enable Spotify integration on the web client (allows drag and drop Spotify links to the queue)
