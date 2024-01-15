@@ -27,10 +27,10 @@ services:
 
   dgb-lavalink:
     container_name: dgb-lavalink
-    image: fredboat/lavalink:v3.7
+    image: ghcr.io/lavalink-devs/lavalink:3
     restart: always
     volumes:
-      - ./lavalink:/opt/Lavalink
+      - ./lavalink/application.yml:/opt/Lavalink/application.yml
 
   dgb-postgres:
     container_name: dgb-postgres
