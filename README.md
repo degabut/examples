@@ -19,7 +19,7 @@
 <!-- /TOC -->
 ## Bot Setup
 
-1. Clone this repository
+1. Clone this repository (or <a href="https://github.com/degabut/examples/archive/refs/heads/main.zip" target="_blank">Download it</a>)
 ```
 git clone https://github.com/degabut/examples
 ```
