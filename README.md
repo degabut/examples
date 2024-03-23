@@ -160,3 +160,49 @@ Degabut by default only allows YouTube videos / playlists (and can't be disabled
 to your `.env` file. Credentials can be obtained from [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
 
 You can also add `VITE_SPOTIFY_INTEGRATION=true` to your `.env.web` file to enable Spotify integration on the web client (allows drag and drop Spotify links to the queue)
+
+## Discord Activity
+
+Discord Embedded Activity is [available as Public Developer Preview](https://discord.com/developers/docs/developer-tools/embedded-app-sdk). [Degabut Web Client](https://github.com/degabut/degabut-web) can be used as an embedded activity on Discord. To enable it:
+
+1. Activate activity feature on your Discord application
+2. Set this as the URL mappings configuration:
+
+|Prefix|Target|Description|
+|---|---|---|
+|`/_/gstatic/{subdomain}`|`{subdomain}.gstatic.com`|for google font|
+|`/_/ytimg/{subdomain}`|`{subdomain}.ytimg.com`|for youtube images|
+|`/_/scdn/{subdomain}`|`{subdomain}.scdn.co`|for spotify images if spotify integration is enabled|
+|`/ws`|`ws://yourhost.com/ws`|for websocket connection|
+|`/api`|`http://yourhost.com/api`|for API connection|
+|`/` (**ROOT MAPPING**)| `http://yourhost.com`|root|
+
+3. Pass `VITE_DISCORD_ACTIVITY_URL_MAPPINGS` to your `.env.web` file with the value of the URL mappings configuration in form of minified JSON array string for url patching, for example, your configuration:
+```json
+[
+    {
+        "prefix": "/_/gstatic/{subdomain}",
+        "target": "{subdomain}.gstatic.com"
+    },
+    {
+        "prefix": "/_/ytimg/{subdomain}",
+        "target": "{subdomain}.ytimg.com"
+    },
+    {
+        "prefix": "/_/scdn/{subdomain}",
+        "target": "{subdomain}.scdn.co"
+    },
+    {
+        "prefix": "/ws",
+        "target": "yourhost.com/ws"
+    },
+    {
+        "prefix": "/api",
+        "target": "yourhost.com/api"
+    }
+]
+```
+The env value should be:
+```
+VITE_DISCORD_ACTIVITY_URL_MAPPINGS=[{"prefix":"/_/gstatic/{subdomain}","target":"{subdomain}.gstatic.com"},{"prefix":"/_/ytimg/{subdomain}","target":"{subdomain}.ytimg.com"},{"prefix":"/_/scdn/{subdomain}","target":"{subdomain}.scdn.co"},{"prefix":"/ws","target":"yourhost.com/ws"},{"prefix":"/api","target":"yourhost.com/api"}]
+```
