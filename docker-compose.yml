@@ -28,7 +28,7 @@ services:
 
   dgb-lavalink:
     container_name: dgb-lavalink
-    image: ghcr.io/lavalink-devs/lavalink:3
+    image: ghcr.io/lavalink-devs/lavalink:4
     restart: always
     volumes:
       - ./lavalink/application.yml:/opt/Lavalink/application.yml
