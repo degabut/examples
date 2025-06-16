@@ -57,7 +57,7 @@ lavalink:
 docker-compose up -d
 ```
 
-6. Verify that your bot is running properly by, inviting your bot to your server, join and voice channel and send `!play never gonna give you up`
+6. Verify that your bot is running properly by, inviting your bot to your server, join a voice channel and send `!play never gonna give you up`
 
 ## Web Setup (optional)
 
