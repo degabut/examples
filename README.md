@@ -172,14 +172,16 @@ Discord Embedded Activity is [available as Public Developer Preview](https://dis
 1. Activate activity feature on your Discord application
 2. Set this as the URL mappings configuration:
 
-| Prefix                   | Target                    | Description                                          |
-| ------------------------ | ------------------------- | ---------------------------------------------------- |
-| `/_/gstatic/{subdomain}` | `{subdomain}.gstatic.com` | for google font                                      |
-| `/_/ytimg/{subdomain}`   | `{subdomain}.ytimg.com`   | for youtube images                                   |
-| `/_/scdn/{subdomain}`    | `{subdomain}.scdn.co`     | for spotify images if spotify integration is enabled |
-| `/ws`                    | `ws://yourhost.com/ws`    | for websocket connection                             |
-| `/api`                   | `http://yourhost.com/api` | for API connection                                   |
-| `/` (**ROOT MAPPING**)   | `http://yourhost.com`     | root                                                 |
+| Prefix                      | Target                       | Description                                 |
+| --------------------------- | ---------------------------- | ------------------------------------------- |
+| `/_/gstatic/{subdomain}`    | `{subdomain}.gstatic.com`    | for google font                             |
+| `/_/ytimg/{subdomain}`      | `{subdomain}.ytimg.com`      | for youtube images                          |
+| `/_/spotify/{subdomain}`    | `{subdomain}.spotify.com`    | for Spotify API if integration is enabled   |
+| `/_/spotifycdn/{subdomain}` | `{subdomain}.spotifycdn.com` | for Spotify media if integration is enabled |
+| `/_/scdn/{subdomain}`       | `{subdomain}.scdn.co`        | for spotify media if integration is enabled |
+| `/ws`                       | `ws://yourhost.com/ws`       | for websocket connection                    |
+| `/api`                      | `http://yourhost.com/api`    | for API connection                          |
+| `/` (**ROOT MAPPING**)      | `http://yourhost.com`        | root                                        |
 
 3. Pass `VITE_DISCORD_ACTIVITY_APPLICATION_ID` to your `.env.web` file with the value of your Discord application ID.
 
@@ -194,6 +196,14 @@ Discord Embedded Activity is [available as Public Developer Preview](https://dis
   {
     "prefix": "/_/ytimg/{subdomain}",
     "target": "{subdomain}.ytimg.com"
+  },
+  {
+    "prefix": "/_/spotify/{subdomain}",
+    "target": "{subdomain}.spotify.com"
+  },
+  {
+    "prefix": "/_/spotifycdn/{subdomain}",
+    "target": "{subdomain}.spotifycdn.com"
   },
   {
     "prefix": "/_/scdn/{subdomain}",
@@ -213,5 +223,5 @@ Discord Embedded Activity is [available as Public Developer Preview](https://dis
 The env value should be:
 
 ```
-VITE_DISCORD_ACTIVITY_URL_MAPPINGS=[{"prefix":"/_/gstatic/{subdomain}","target":"{subdomain}.gstatic.com"},{"prefix":"/_/ytimg/{subdomain}","target":"{subdomain}.ytimg.com"},{"prefix":"/_/scdn/{subdomain}","target":"{subdomain}.scdn.co"},{"prefix":"/ws","target":"yourhost.com/ws"},{"prefix":"/api","target":"yourhost.com/api"}]
+VITE_DISCORD_ACTIVITY_URL_MAPPINGS=[{"prefix":"/_/gstatic/{subdomain}","target":"{subdomain}.gstatic.com"},{"prefix":"/_/ytimg/{subdomain}","target":"{subdomain}.ytimg.com"},{"prefix":"/_/spotify/{subdomain}","target":"{subdomain}.spotify.com"},{"prefix":"/_/spotifycdn/{subdomain}","target":"{subdomain}.spotifycdn.com"},{"prefix":"/_/scdn/{subdomain}","target":"{subdomain}.scdn.co"},{"prefix":"/ws","target":"yourhost.com/ws"},{"prefix":"/api","target":"yourhost.com/api"}]
 ```
