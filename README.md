@@ -181,7 +181,9 @@ Discord Embedded Activity is [available as Public Developer Preview](https://dis
 | `/api`                   | `http://yourhost.com/api` | for API connection                                   |
 | `/` (**ROOT MAPPING**)   | `http://yourhost.com`     | root                                                 |
 
-3. Pass `VITE_DISCORD_ACTIVITY_URL_MAPPINGS` to your `.env.web` file with the value of the URL mappings configuration in form of minified JSON array string for url patching, for example, your configuration:
+3. Pass `VITE_DISCORD_ACTIVITY_APPLICATION_ID` to your `.env.web` file with the value of your Discord application ID.
+
+4. Pass `VITE_DISCORD_ACTIVITY_URL_MAPPINGS` to your `.env.web` file with the value of the URL mappings configuration in form of minified JSON array string for url patching, for example, your configuration:
 
 ```json
 [
