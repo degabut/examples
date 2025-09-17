@@ -23,10 +23,13 @@ services:
   #   env_file:
   #     - .env
   #   environment:
-  #     - API_PORT=8082
-  #     - WS_PORT=8083
-  #     - TOKEN=${RED_TOKEN}
-  #     - PREFIX=r!
+  #     - API_PORT=8081
+  #     - WS_PORT=8081
+  #     - WS_PATH=/ws
+  #     - YOUTUBE_API_PORT=8081
+  #     - YOUTUBE_API_PATH=/youtube
+  #     - TOKEN=${BOT_TOKEN}
+  #     - PREFIX=!
 
   dgb-lavalink:
     container_name: dgb-lavalink
