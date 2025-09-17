@@ -2,10 +2,13 @@ server: # REST and WS server
   port: 2333
   address: 0.0.0.0
 lavalink:
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.13.5"
+      snapshot: false # Set to true if you want to use a snapshot version.
   server:
     password: lavalink-password
     sources:
-      youtube: true
+      youtube: false
       bandcamp: false
       soundcloud: false
       twitch: false

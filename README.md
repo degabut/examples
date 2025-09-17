@@ -74,7 +74,7 @@ While the bot is usable now, you can have a better experience by using the [web 
 | `VITE_WS_URL`               | URL to WebSocket API                                                      | `ws://yourhost.com/ws`                         |
 | `VITE_OAUTH_URL`            | Discord OAuth URL for Authentication, [more information here](#oauth-url) | `https://discord.com/api/oauth2/authorize?...` |
 
-3. Uncomment under the `FOR WEB` comment on the `docker.compose.yml` file (enabling `dgb-nginx`, `dgb-youtube`, and `dgb-web-builder` services)
+3. Uncomment under the `FOR WEB` comment on the `docker.compose.yml` file, enabling `dgb-nginx` and `dgb-web-builder` services
 
 4. Run the containers again `docker-compose up -d`
 
@@ -167,7 +167,7 @@ You can also add `VITE_SPOTIFY_INTEGRATION=true` to your `.env.web` file to enab
 
 ## Discord Activity
 
-Discord Embedded Activity is [available as Public Developer Preview](https://discord.com/developers/docs/developer-tools/embedded-app-sdk). [Degabut Web Client](https://github.com/degabut/degabut-web) can be used as an embedded activity on Discord. To enable it:
+[Degabut Web Client](https://github.com/degabut/degabut-web) can be used as an [embedded activity on Discord](https://discord.com/developers/docs/developer-tools/embedded-app-sdk). To enable it:
 
 1. Activate activity feature on your Discord application
 2. Set this as the URL mappings configuration:

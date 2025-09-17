@@ -8,8 +8,10 @@ services:
       - .env
     environment:
       - API_PORT=8080
-      - WS_PORT=8081
-      # - YOUTUBE_API_PORT=8090 # Optional, if you want to run the Youtube API (used by web) on the same process to save some memory
+      - WS_PORT=8080
+      - WS_PATH=/ws
+      - YOUTUBE_API_PORT=8080
+      - YOUTUBE_API_PATH=/youtube
       - TOKEN=${BOT_TOKEN}
       - PREFIX=!
 
@@ -51,15 +53,6 @@ services:
   #   ports:
   #     - "80:80"
   #     - "443:443"
-
-  # dgb-youtube:
-  #   container_name: dgb-youtube
-  #   image: suspiciouslookingowl/degabut:latest
-  #   restart: always
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     - YOUTUBE_API_PORT=8090
 
   # dgb-web-builder:
   #   container_name: dgb-web-builder
