@@ -174,8 +174,9 @@ You can also add `VITE_SPOTIFY_INTEGRATION=true` to your `.env.web` file to enab
 
 | Prefix                      | Target                       | Description                                 |
 | --------------------------- | ---------------------------- | ------------------------------------------- |
-| `/_/gstatic/{subdomain}`    | `{subdomain}.gstatic.com`    | for google font                             |
-| `/_/ytimg/{subdomain}`      | `{subdomain}.ytimg.com`      | for youtube images                          |
+| `/_/gstatic/{subdomain}`    | `{subdomain}.gstatic.com`    | for Google font                             |
+| `/_/ytimg/{subdomain}`      | `{subdomain}.ytimg.com`      | for YouTube images                          |
+| `/_/googleapis/{subdomain}` | `{subdomain}.googleapis.com` | for YouTube API integration                 |
 | `/_/spotify/{subdomain}`    | `{subdomain}.spotify.com`    | for Spotify API if integration is enabled   |
 | `/_/spotifycdn/{subdomain}` | `{subdomain}.spotifycdn.com` | for Spotify media if integration is enabled |
 | `/_/scdn/{subdomain}`       | `{subdomain}.scdn.co`        | for spotify media if integration is enabled |
@@ -196,6 +197,10 @@ You can also add `VITE_SPOTIFY_INTEGRATION=true` to your `.env.web` file to enab
   {
     "prefix": "/_/ytimg/{subdomain}",
     "target": "{subdomain}.ytimg.com"
+  },
+  {
+    "prefix": "/_/googleapis/{subdomain}",
+    "target": "{subdomain}.googleapis.com"
   },
   {
     "prefix": "/_/spotify/{subdomain}",
